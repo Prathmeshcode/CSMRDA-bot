@@ -1,0 +1,28 @@
+.phone {
+  width: 420px;
+  height: 850px;
+  background: #ece5dd;
+  border-radius: 45px;
+  padding: 15px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 30px 70px rgba(0,0,0,.45);
+}
+
+.notch {
+  width: 170px;
+  height: 35px;
+  background: #111;
+  border-radius: 25px;
+  position: absolute;
+  left: 50%;
+  top: 15px;
+  transform: translateX(-50%);
+  z-index: 999;
+}
+.chat-frame {
+  width: 100%;
+  height: calc(100% - 140px);
+  border: none;
+  display: block;
+}

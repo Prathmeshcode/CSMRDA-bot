@@ -1,0 +1,149 @@
+.chat-frame-container {
+  width: 100%;
+  height: calc(100% - 138px); /* Height below header and language bar */
+  overflow: hidden;
+  position: relative;
+  background-color: #efeae2;
+  /* WhatsApp Wallpaper */
+  background-image: url('https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png');
+  background-repeat: repeat;
+  background-size: 380px;
+  border-radius: 0 0 35px 35px; /* Round bottom of screen inside phone */
+  box-sizing: border-box;
+}
+
+#n8n-chat {
+  width: 100%;
+  height: 100%;
+  display: block;
+  
+  /* WhatsApp variable configurations */
+  --chat--font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+  --chat--spacing: 0.75rem;
+  
+  --chat--color--primary: #008069; /* WhatsApp Green */
+  --chat--color--secondary: #d9fdd3; /* Light green outgoing bubbles */
+  
+  --chat--body--background: transparent; /* Show container wallpaper */
+  --chat--messages-list--padding: 15px 15px 75px 15px;
+
+  /* Bot incoming message bubbles */
+  --chat--message--bot--background: #ffffff;
+  --chat--message--bot--color: #111b21;
+  --chat--message--bot--border: none;
+  --chat--message--bot--border-radius: 8px;
+
+  /* User outgoing message bubbles */
+  --chat--message--user--background: #d9fdd3;
+  --chat--message--user--color: #111b21;
+  --chat--message--user--border: none;
+  --chat--message--user--border-radius: 8px;
+
+  /* Input container styling at the bottom */
+  --chat--input--container--background: #f0f2f5;
+  --chat--input--background: #ffffff;
+  --chat--input--text-color: #111b21;
+  --chat--input--line-height: 1.5;
+  --chat--textarea--height: 42px;
+  
+  /* Send and actions button styling */
+  --chat--input--send--button--background: #00a884;
+  --chat--input--send--button--color: #ffffff;
+  --chat--input--send--button--background-hover: #008069;
+  --chat--input--send--button--color-hover: #ffffff;
+  
+  --chat--button--border-radius: 20px;
+}
+
+/* Hide n8n default header (the "Hi there!" welcome box) */
+#n8n-chat header,
+#n8n-chat .chat-header,
+#n8n-chat [class*="header"],
+#n8n-chat .chat-get-started,
+#n8n-chat .chat-get-started-footer {
+  display: none !important;
+}
+
+/* Hide n8n logo brand information inside the widget */
+#n8n-chat footer,
+#n8n-chat .chat-powered-by {
+  display: none !important;
+}
+
+/* Style message bubbles for WhatsApp layout aesthetics */
+#n8n-chat .chat-message-markdown,
+#n8n-chat [class*="chat-message"],
+#n8n-chat [class*="message-content"] {
+  font-size: 14.5px !important;
+  line-height: 1.45 !important;
+}
+
+/* Add speech bubble tail effect and shadow matching WhatsApp */
+#n8n-chat [class*="-bot-message"],
+#n8n-chat [class*="bot-message"] {
+  box-shadow: 0 1px 0.5px rgba(11,20,26,.13) !important;
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 8px !important;
+  border-top-right-radius: 8px !important;
+  border-bottom-right-radius: 8px !important;
+  position: relative !important;
+}
+
+#n8n-chat [class*="-user-message"],
+#n8n-chat [class*="user-message"] {
+  box-shadow: 0 1px 0.5px rgba(11,20,26,.13) !important;
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 8px !important;
+  border-top-left-radius: 8px !important;
+  border-bottom-left-radius: 8px !important;
+  position: relative !important;
+}
+
+/* Style the bottom message input panel */
+#n8n-chat [class*="input-container"],
+#n8n-chat [class*="footer"] {
+  background-color: #f0f2f5 !important;
+  padding: 10px 12px !important;
+  border-top: 1px solid rgba(0,0,0,0.05) !important;
+}
+
+/* WhatsApp styled rounded input text area */
+#n8n-chat textarea,
+#n8n-chat input[type="text"],
+#n8n-chat [class*="input"] textarea {
+  border-radius: 20px !important;
+  padding: 10px 16px !important;
+  font-size: 15px !important;
+  background-color: #ffffff !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.08) !important;
+  color: #111b21 !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* WhatsApp styled circular send button */
+#n8n-chat [class*="send-button"],
+#n8n-chat button[type="submit"],
+#n8n-chat [class*="input"] button {
+  background-color: #00a884 !important;
+  color: #ffffff !important;
+  border-radius: 50% !important;
+  width: 42px !important;
+  height: 42px !important;
+  min-width: 42px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.15) !important;
+  border: none !important;
+  cursor: pointer !important;
+  transition: background-color 0.15s ease !important;
+  padding: 0 !important;
+}
+
+#n8n-chat [class*="send-button"]:hover,
+#n8n-chat button[type="submit"]:hover {
+  background-color: #008069 !important;
+}
