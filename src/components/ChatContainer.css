@@ -9,8 +9,8 @@
   background-image: url('https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png');
   background-repeat: repeat;
   background-size: 380px;
-  border-radius: 0 0 35px 35px;
-  /* Round bottom of screen inside phone */
+  border-radius: 0;
+  /* Let parent overflow: hidden bezel clip the corners */
   box-sizing: border-box;
 }
 
@@ -148,14 +148,8 @@
   padding: 0 !important;
 }
 
+
 #n8n-chat [class*="send-button"]:hover,
 #n8n-chat button[type="submit"]:hover {
   background-color: #008069 !important;
-}
-
-@media (max-width: 480px) {
-  .chat-frame-container {
-    height: calc(100% - 123px); /* 75px mobile header + 48px language bar */
-    border-radius: 0;
-  }
 }
