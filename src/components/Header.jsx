@@ -22,7 +22,7 @@ function Header() {
         </div>
 
         <div className="title">
-          <h3>CSMRDA Vikas Mitra</h3>
+          <h3>CSMRDA Mitra</h3>
           <span className="status-online">online</span>
         </div>
       </div>

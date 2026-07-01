@@ -1,5 +1,6 @@
 .language {
-  background: #efeae2; /* Match WhatsApp wallpaper background */
+  background: #efeae2;
+  /* Match WhatsApp wallpaper background */
   padding: 8px 15px;
   display: flex;
   justify-content: center;
@@ -17,7 +18,7 @@
   font-size: 13px;
   font-weight: 600;
   transition: all 0.2s ease;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 
 .language button:hover {
