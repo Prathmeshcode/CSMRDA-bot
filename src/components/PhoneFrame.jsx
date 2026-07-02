@@ -1,6 +1,5 @@
 import "./PhoneFrame.css";
 import Header from "./Header";
-import LanguageBar from "./LanguageBar";
 import ChatContainer from "./ChatContainer";
 
 function PhoneFrame() {
@@ -9,8 +8,6 @@ function PhoneFrame() {
       <div className="notch"></div>
 
       <Header />
-
-      <LanguageBar />
 
       <ChatContainer />
     </div>
