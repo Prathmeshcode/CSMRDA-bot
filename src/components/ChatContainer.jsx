@@ -24,7 +24,7 @@ function ChatContainer() {
       createChat({
         target: '#n8n-chat',
         mode: 'fullscreen',
-        webhookUrl: 'https://dwarf-sash-revisable.ngrok-free.dev/webhook/9b70304f-ba8d-46c5-8b51-08833bf39997/chat',
+        webhookUrl: 'https://straddle-harsh-blighted.ngrok-free.dev/webhook/ebf94f58-222f-4ad6-95b5-ed52e1ee135f/chat',
         showWelcomeScreen: false,
         loadPreviousSession: false,
         webhookConfig: {
