@@ -1,0 +1,195 @@
+.message-wrapper {
+    display: flex;
+    margin-bottom: 8px;
+    width: 100%;
+}
+
+.user-wrapper {
+    justify-content: flex-end;
+}
+
+.bot-wrapper {
+    justify-content: flex-start;
+}
+
+.user-bubble {
+    background: #d9fdd3; /* WhatsApp User Light Green */
+    border-radius: 12px 12px 0 12px;
+    padding: 8px 12px 14px 12px;
+    max-width: 75%;
+    box-shadow: 0 1px 1.5px rgba(0, 0, 0, 0.15);
+    position: relative;
+    word-break: break-word;
+    text-align: left;
+}
+
+.bot-bubble {
+    background: white;
+    border-radius: 12px 12px 12px 0;
+    overflow: hidden;
+    width: 100%;
+    max-width: 80%;
+    box-shadow: 0 1px 1.5px rgba(0, 0, 0, 0.15);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.message-text {
+    padding: 8px 12px 14px 12px;
+    line-height: 1.4;
+    font-size: 14.5px;
+    color: #111b21;
+    white-space: pre-line;
+}
+
+.bot-message-title {
+    font-weight: 700;
+    margin-bottom: 4px;
+    font-size: 15px;
+}
+
+.bot-message-subtitle {
+    font-size: 14px;
+    color: #667781;
+}
+
+.bot-buttons-container {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid #f0f2f5;
+}
+
+.option-button {
+    width: 100%;
+    border: none;
+    background: white;
+    border-bottom: 1px solid #f0f2f5;
+    padding: 12px 16px;
+    text-align: left;
+    font-size: 14px;
+    font-weight: 500;
+    color: #008069;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.15s ease;
+}
+
+.option-button:last-child {
+    border-bottom: none;
+}
+
+.option-button:hover {
+    background: #f0f2f5;
+}
+
+.option-button span {
+    font-size: 18px;
+    font-weight: bold;
+    color: #008069;
+}
+
+.message-time {
+    font-size: 10px;
+    color: #667781;
+    align-self: flex-end;
+    margin-top: -10px;
+    margin-right: 8px;
+    margin-bottom: 4px;
+}
+
+.user-bubble .message-time {
+    position: absolute;
+    bottom: 2px;
+    right: 6px;
+    margin: 0;
+}
+
+.loading-bubble {
+    background: white;
+    border-radius: 12px 12px 12px 0;
+    padding: 12px 16px;
+    width: fit-content;
+    max-width: 80px;
+    box-shadow: 0 1px 1.5px rgba(0, 0, 0, 0.15);
+}
+
+.typing-indicator {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    justify-content: center;
+    height: 8px;
+}
+
+.typing-indicator span {
+    width: 6px;
+    height: 6px;
+    background: #8696a0;
+    border-radius: 50%;
+    animation: typing 1.4s infinite ease-in-out both;
+}
+
+.typing-indicator span:nth-child(1) {
+    animation-delay: -0.32s;
+}
+
+.typing-indicator span:nth-child(2) {
+    animation-delay: -0.16s;
+}
+
+@keyframes typing {
+    0%, 80%, 100% {
+        transform: scale(0.3);
+        opacity: 0.3;
+    }
+    40% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.message-link {
+    color: #008069;
+    text-decoration: underline;
+    font-weight: 500;
+}
+
+.message-link:hover {
+    color: #006653;
+}
+
+.bot-items-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 4px;
+}
+
+.bot-item {
+    border-bottom: 1px dashed #f0f2f5;
+    padding-bottom: 8px;
+}
+
+.bot-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.bot-item-text {
+    font-size: 14.5px;
+    color: #111b21;
+}
+
+.bot-item-link {
+    margin-top: 4px;
+    font-size: 13.5px;
+}
+
+.bot-direct-link-container {
+    margin-top: 6px;
+    font-size: 13.5px;
+}
