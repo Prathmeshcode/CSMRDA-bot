@@ -2,6 +2,7 @@ import "./App.css";
 import PhoneFrame from "./components/PhoneFrame";
 
 function App() {
+
   return (
     <div className="app-container">
       <div className="app-content">

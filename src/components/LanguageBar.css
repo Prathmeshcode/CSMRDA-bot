@@ -26,3 +26,9 @@
   color: white;
   border-color: #008069;
 }
+
+.language button.active {
+  background: #008069;
+  color: white;
+  border-color: #008069;
+}
