@@ -1199,6 +1199,12 @@ function ChatContainer() {
         msgWrapper.className = 'chat-message-wrapper bot-message-wrapper wa-welcome-message-wrapper';
         
         let formattedHTML = textHTML;
+
+        // Replace literal backslash-n (\n) with actual newline characters
+        formattedHTML = formattedHTML.replace(/\\n/g, '\n');
+
+        // Support formatting bold **text** to HTML tags
+        formattedHTML = formattedHTML.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
         
         // Convert markdown list choice links to custom HTML lists
         if (formattedHTML.includes('*   [')) {
@@ -1220,8 +1226,6 @@ function ChatContainer() {
             `;
           }
         } else {
-          // Support formatting bold **text** to HTML tags
-          formattedHTML = formattedHTML.replace(/\*\*(.*?)\*\//g, '<strong>$1</strong>');
           formattedHTML = formattedHTML.replace(/\n/g, '<br>');
         }
 
