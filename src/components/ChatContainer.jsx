@@ -68,8 +68,8 @@ function ChatContainer() {
 
           const actionUrls = {
             download_pdf: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
-            bpms: "https://bpms.csmrda.in/",
-            open_bpms: "https://bpms.csmrda.in/",
+            bpms: "https://mahavastu.maharashtra.gov.in/",
+            open_bpms: "https://mahavastu.maharashtra.gov.in/",
             register: "https://aaplesarkar.mahaonline.gov.in/en/Registration/Register",
             login: "https://aaplesarkar.mahaonline.gov.in/en/Login/Login",
             track_application: "https://aaplesarkar.mahaonline.gov.in/en/TrackApplication/Index",
