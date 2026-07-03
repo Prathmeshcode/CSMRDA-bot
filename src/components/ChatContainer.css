@@ -323,19 +323,21 @@
   background: transparent !important;
 }
 
-/* WhatsApp styled custom thin scrollbar */
-#n8n-chat *::-webkit-scrollbar {
-  width: 6px !important;
-  height: 6px !important;
-}
-
-#n8n-chat *::-webkit-scrollbar-track {
+/* Hide scrollbars completely for all platforms to match native WhatsApp look */
+#n8n-chat *::-webkit-scrollbar,
+.chat-frame-container *::-webkit-scrollbar,
+.chat-frame-container::-webkit-scrollbar {
+  width: 0px !important;
+  height: 0px !important;
+  display: none !important;
   background: transparent !important;
 }
 
-#n8n-chat *::-webkit-scrollbar-thumb {
-  background-color: rgba(11, 20, 26, 0.2) !important;
-  border-radius: 10px !important;
+#n8n-chat *,
+.chat-frame-container *,
+.chat-frame-container {
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
 }
 
 /* Explicit styling for custom welcome messages to bypass CSS modules hashing */
