@@ -31,14 +31,14 @@ function ChatContainer() {
         } else {
           chatInput.value = text;
         }
-        
+
         chatInput.dispatchEvent(new Event("input", { bubbles: true }));
-        
+
         // Wait 50ms for React state to synchronize, then trigger click/submit
         setTimeout(() => {
-          const sendBtn = document.querySelector("#n8n-chat button[type='submit']") || 
-                          document.querySelector("#n8n-chat [class*='send-button']") ||
-                          document.querySelector("#n8n-chat button");
+          const sendBtn = document.querySelector("#n8n-chat button[type='submit']") ||
+            document.querySelector("#n8n-chat [class*='send-button']") ||
+            document.querySelector("#n8n-chat button");
           if (sendBtn) {
             sendBtn.click();
           } else {
@@ -74,7 +74,7 @@ function ChatContainer() {
             login: "https://aaplesarkar.mahaonline.gov.in/en/Login/Login",
             track_application: "https://aaplesarkar.mahaonline.gov.in/en/TrackApplication/Index",
             open_portal: "https://aaplesarkar.mahaonline.gov.in/",
-            open_gunthewari: "https://gunthewari.csmrda.in/"
+            open_gunthewari: "https://gunthevari-form.csmrda.in/"
           };
 
           if (actionUrls[choice]) {
@@ -712,7 +712,7 @@ function ChatContainer() {
         url.includes("/chat")
       ) {
         const lowInput = userInput.toLowerCase();
-        
+
         // Handle direct start triggering
         if (["hi", "hello", "hey", "start", "/start", "menu", ""].includes(lowInput)) {
           clientState = "ST001";
@@ -727,7 +727,7 @@ function ChatContainer() {
             "open_registration", "open_login", "track_application", "open_gunthewari",
             "0", "1", "2", "3", "4"
           ];
-          
+
           if (!validChoiceInputs.includes(lowInput) && clientState !== "ST501") {
             isRandomMsg = true;
             // Map default trigger by language
@@ -899,10 +899,10 @@ function ChatContainer() {
           // Check if we have an action prefix to show successful redirect/download notices
           let actionPrefix = "";
           if (["DOWNLOAD_LAYOUT", "DOWNLOAD_BUILDING_PERMISSION", "DOWNLOAD_OCCUPANCY"].includes(nextScreen)) {
-            actionPrefix = clientLanguage === "mr" ? 
-              "📥 **लेआउट मंजुरी कागदपत्रांची फाईल डाउनलोड सुरू झाली आहे.**\n\n" : 
-              (clientLanguage === "hin" ? 
-                "📥 **दस्तावेज़ फ़ाइल डाउनलोड होना शुरू हो गई है।**\n\n" : 
+            actionPrefix = clientLanguage === "mr" ?
+              "📥 **लेआउट मंजुरी कागदपत्रांची फाईल डाउनलोड सुरू झाली आहे.**\n\n" :
+              (clientLanguage === "hin" ?
+                "📥 **दस्तावेज़ फ़ाइल डाउनलोड होना शुरू हो गई है।**\n\n" :
                 "📥 **Document file download has been initiated.**\n\n");
             if (nextScreen === "DOWNLOAD_LAYOUT") nextScreen = "ST102";
             else if (nextScreen === "DOWNLOAD_BUILDING_PERMISSION") nextScreen = "ST103";
@@ -1039,10 +1039,10 @@ function ChatContainer() {
           mockObj.output = outputText;
 
           if (isRandomMsg) {
-            const warning = clientLanguage === "mr" ? 
-              "कृपया खालीलपैकी एक सेवा निवडा:\n\n" : 
-              (clientLanguage === "hin" ? 
-                "कृपया निम्नलिखित में से कोई एक सेवा चुनें:\n\n" : 
+            const warning = clientLanguage === "mr" ?
+              "कृपया खालीलपैकी एक सेवा निवडा:\n\n" :
+              (clientLanguage === "hin" ?
+                "कृपया निम्नलिखित में से कोई एक सेवा चुनें:\n\n" :
                 "Please select one of the services as follows:\n\n");
             mockObj.output = warning + mockObj.output;
           }
@@ -1058,13 +1058,13 @@ function ChatContainer() {
           });
         } else {
           if (isRandomMsg && targetObj.output) {
-            const warning = clientLanguage === "mr" ? 
-              "कृपया खालीलपैकी एक सेवा निवडा:\n\n" : 
-              (clientLanguage === "hin" ? 
-                "कृपया निम्नलिखित में से कोई एक सेवा चुनें:\n\n" : 
+            const warning = clientLanguage === "mr" ?
+              "कृपया खालीलपैकी एक सेवा निवडा:\n\n" :
+              (clientLanguage === "hin" ?
+                "कृपया निम्नलिखित में से कोई एक सेवा चुनें:\n\n" :
                 "Please select one of the services as follows:\n\n");
             targetObj.output = warning + targetObj.output;
-            
+
             const modifiedData = isArray ? [targetObj] : targetObj;
             const blob = new Blob([JSON.stringify(modifiedData)], {
               type: "application/json",
@@ -1122,14 +1122,14 @@ function ChatContainer() {
         '#n8n-chat [class*="layout"]',
         '#n8n-chat'
       ];
-      
+
       selectors.forEach(selector => {
         const el = document.querySelector(selector);
         if (el && !scrollableElements.includes(el)) {
           scrollableElements.push(el);
         }
       });
-      
+
       const allDivs = document.querySelectorAll('#n8n-chat div');
       allDivs.forEach(div => {
         if (div.scrollHeight > div.clientHeight && !scrollableElements.includes(div)) {
@@ -1148,9 +1148,9 @@ function ChatContainer() {
     const startInitialSequence = () => {
       if (sequenceStarted) return;
 
-      const messagesList = document.querySelector('#n8n-chat [class*="messages-list"]') || 
-                           document.querySelector('#n8n-chat .chat-messages') ||
-                           document.querySelector('#n8n-chat [class*="-messages-list"]');
+      const messagesList = document.querySelector('#n8n-chat [class*="messages-list"]') ||
+        document.querySelector('#n8n-chat .chat-messages') ||
+        document.querySelector('#n8n-chat [class*="-messages-list"]');
       if (!messagesList) return;
 
       sequenceStarted = true;
@@ -1197,7 +1197,7 @@ function ChatContainer() {
       const appendMessage = (textHTML) => {
         const msgWrapper = document.createElement('div');
         msgWrapper.className = 'chat-message-wrapper bot-message-wrapper wa-welcome-message-wrapper';
-        
+
         let formattedHTML = textHTML;
 
         // Replace literal backslash-n (\n) with actual newline characters
@@ -1205,18 +1205,18 @@ function ChatContainer() {
 
         // Support formatting bold **text** to HTML tags
         formattedHTML = formattedHTML.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-        
+
         // Convert markdown list choice links to custom HTML lists
         if (formattedHTML.includes('*   [')) {
           const listItems = [];
           const regex = /\*\s+\[(.*?)\]\(#choice-(.*?)\)/g;
           let match;
           const textBefore = formattedHTML.split('*')[0].trim();
-          
+
           while ((match = regex.exec(formattedHTML)) !== null) {
             listItems.push(`<li><a href="#choice-${match[2]}">${match[1]}</a></li>`);
           }
-          
+
           if (listItems.length > 0) {
             formattedHTML = `
               ${textBefore.replace(/\n/g, '<br>')}
@@ -1246,28 +1246,28 @@ function ChatContainer() {
       // RUN SEQUENTIAL TYPING ANIMATION
       setTimeout(() => {
         showTypingIndicator();
-        
+
         setTimeout(() => {
           removeTypingIndicator();
           appendMessage('🙏 **नमस्कार!** मी **विकास मित्र** — छत्रपती संभाजीनगर महानगर प्रदेश विकास प्राधिकरण (CSMRDA) चा डिजिटल सहाय्यक.');
-          
+
           setTimeout(() => {
             showTypingIndicator();
-            
+
             setTimeout(() => {
               removeTypingIndicator();
               appendMessage('🙏 **नमस्ते!** मैं **विकास मित्र** — छत्रपति संभाजीनगर महानगर क्षेत्र विकास प्राधिकरण (CSMRDA) का डिजिटल सहायक हूँ।');
-              
+
               setTimeout(() => {
                 showTypingIndicator();
-                
+
                 setTimeout(() => {
                   removeTypingIndicator();
                   appendMessage('🙏 **Hello!** I\'m **Vikas Mitra** — the digital assistant for the Chhatrapati Sambhajinagar Metropolitan Region Development Authority (CSMRDA).');
-                  
+
                   setTimeout(() => {
                     showTypingIndicator();
-                    
+
                     setTimeout(() => {
                       removeTypingIndicator();
                       appendMessage('भाषा / Language / भाषा\\n\\nकृपया तुमची आवडती भाषा निवडा / Please select your preferred language / कृपया अपनी पसंदीदा भाषा चुनें:\\n*   [🇬🇧 English](#choice-en)\\n*   [🇮🇳 मराठी](#choice-mr)\\n*   [🇮🇳 हिन्दी](#choice-hindi)');
@@ -1283,9 +1283,9 @@ function ChatContainer() {
 
     // Check for messagesList container mounting every 100ms to start sequence reliably
     const initialCheckInterval = setInterval(() => {
-      const messagesList = document.querySelector('#n8n-chat [class*="messages-list"]') || 
-                           document.querySelector('#n8n-chat .chat-messages') ||
-                           document.querySelector('#n8n-chat [class*="-messages-list"]');
+      const messagesList = document.querySelector('#n8n-chat [class*="messages-list"]') ||
+        document.querySelector('#n8n-chat .chat-messages') ||
+        document.querySelector('#n8n-chat [class*="-messages-list"]');
       if (messagesList) {
         clearInterval(initialCheckInterval);
         startInitialSequence();
@@ -1296,9 +1296,9 @@ function ChatContainer() {
     const targetNode = document.getElementById("n8n-chat");
 
     const rearrangeMessages = () => {
-      const messagesList = document.querySelector('#n8n-chat [class*="messages-list"]') || 
-                           document.querySelector('#n8n-chat .chat-messages') ||
-                           document.querySelector('#n8n-chat [class*="-messages-list"]');
+      const messagesList = document.querySelector('#n8n-chat [class*="messages-list"]') ||
+        document.querySelector('#n8n-chat .chat-messages') ||
+        document.querySelector('#n8n-chat [class*="-messages-list"]');
       if (!messagesList) return;
 
       const dateEl = document.getElementById('wa-date-disclaimer');
@@ -1359,13 +1359,13 @@ function ChatContainer() {
                 "apply_here", "aaple_sarkar", "register", "login", "track",
                 "open_registration", "open_login", "track_application"
               ];
-              
+
               if (hiddenChoiceInputs.includes(text)) {
                 msg.style.setProperty('display', 'none', 'important');
-                const wrapper = msg.closest('[class*="message-wrapper"]') || 
-                                msg.closest('[class*="message-row"]') || 
-                                msg.closest('[class*="message-container"]') ||
-                                msg.parentElement;
+                const wrapper = msg.closest('[class*="message-wrapper"]') ||
+                  msg.closest('[class*="message-row"]') ||
+                  msg.closest('[class*="message-container"]') ||
+                  msg.parentElement;
                 if (wrapper && wrapper !== document.getElementById('n8n-chat')) {
                   wrapper.style.setProperty('display', 'none', 'important');
                 }
