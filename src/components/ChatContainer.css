@@ -303,28 +303,59 @@
   color-scheme: light !important;
 }
 
-/* Ensure full opacity and zero grey filters on the message history panel */
+/* Ensure full opacity and transparent background on all messages layout panels and scrollable wrappers */
+#n8n-chat [class*="layout"],
+#n8n-chat [class*="container"]:not([class*="message"]),
+#n8n-chat [class*="wrapper"]:not([class*="message"]):not(.wa-welcome-message-wrapper),
+#n8n-chat [class*="window"],
+#n8n-chat [class*="body"]:not([class*="message"]),
 #n8n-chat [class*="messages-list"],
 #n8n-chat [class*="chat-messages"],
 #n8n-chat .chat-messages {
   opacity: 1 !important;
   filter: none !important;
   background: transparent !important;
+  background-color: transparent !important;
+  overflow-x: hidden !important;
 }
 
-/* WhatsApp styled custom thin scrollbar */
-#n8n-chat *::-webkit-scrollbar {
-  width: 6px !important;
-  height: 6px !important;
+/* Hide scrollbars completely for all platforms to match native WhatsApp look */
+::-webkit-scrollbar,
+*::-webkit-scrollbar,
+#n8n-chat::-webkit-scrollbar,
+#n8n-chat *::-webkit-scrollbar,
+.chat-frame-container::-webkit-scrollbar,
+.chat-frame-container *::-webkit-scrollbar {
+  width: 0px !important;
+  height: 0px !important;
+  display: none !important;
+  background: transparent !important;
+  background-color: transparent !important;
 }
 
+::-webkit-scrollbar-track,
+*::-webkit-scrollbar-track,
+#n8n-chat::-webkit-scrollbar-track,
 #n8n-chat *::-webkit-scrollbar-track {
   background: transparent !important;
+  background-color: transparent !important;
 }
 
+::-webkit-scrollbar-thumb,
+*::-webkit-scrollbar-thumb,
+#n8n-chat::-webkit-scrollbar-thumb,
 #n8n-chat *::-webkit-scrollbar-thumb {
-  background-color: rgba(11, 20, 26, 0.2) !important;
-  border-radius: 10px !important;
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+*,
+#n8n-chat *,
+.chat-frame-container *,
+.chat-frame-container {
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+  scrollbar-gutter: auto !important;
 }
 
 /* Explicit styling for custom welcome messages to bypass CSS modules hashing */
