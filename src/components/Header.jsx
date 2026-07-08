@@ -1,9 +1,36 @@
+import { useState, useEffect, useRef } from "react";
 import "./Header.css";
 import { FaArrowLeft, FaVideo, FaPhoneAlt, FaEllipsisV } from "react-icons/fa";
 
 function Header() {
+  const [status, setStatus] = useState("online");
+  const [menuOpen, setMenuOpen] = useState(false);
+  const menuRef = useRef(null);
+
+  useEffect(() => {
+    const handleStatusChange = (e) => {
+      if (e.detail && e.detail.status) {
+        setStatus(e.detail.status);
+      }
+    };
+    window.addEventListener("chatbot-status-change", handleStatusChange);
+    
+    // Close dropdown on click outside
+    const handleClickOutside = (e) => {
+      if (menuRef.current && !menuRef.current.contains(e.target)) {
+        setMenuOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      window.removeEventListener("chatbot-status-change", handleStatusChange);
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   return (
-    <div className="header">
+    <div className="header" style={{ position: 'relative' }}>
       <div className="header-left">
         <FaArrowLeft className="back-arrow" />
         <div className="profile-container">
@@ -30,14 +57,37 @@ function Header() {
               <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
             </svg>
           </div>
-          <span className="status-online" style={{ textAlign: 'left' }}>online</span>
+          <span 
+            className={`status-online ${status === "typing..." ? "typing" : ""}`} 
+            style={{ textAlign: 'left', transition: 'all 0.2s' }}
+          >
+            {status}
+          </span>
         </div>
       </div>
 
-      <div className="icons">
+      <div className="icons" ref={menuRef}>
         <FaVideo className="header-icon" />
         <FaPhoneAlt className="header-icon" />
-        <FaEllipsisV className="header-icon" />
+        <div style={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
+          <FaEllipsisV className="header-icon" onClick={() => setMenuOpen(!menuOpen)} />
+          {menuOpen && (
+            <div className="header-dropdown">
+              <div className="dropdown-item" onClick={() => { window.resetChatbotSession?.(); setMenuOpen(false); }}>
+                🔄 Reset Session
+              </div>
+              <div className="dropdown-item" onClick={() => { window.sendChatMessage?.("mr"); setMenuOpen(false); }}>
+                🗣️ मराठी (Marathi)
+              </div>
+              <div className="dropdown-item" onClick={() => { window.sendChatMessage?.("hi"); setMenuOpen(false); }}>
+                🗣️ हिन्दी (Hindi)
+              </div>
+              <div className="dropdown-item" onClick={() => { window.sendChatMessage?.("en"); setMenuOpen(false); }}>
+                🗣️ English
+              </div>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

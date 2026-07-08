@@ -25,7 +25,36 @@
   left: 50%;
   top: 8px;
   transform: translateX(-50%);
-  z-index: 999;
+  z-index: 1001;
+}
+
+.status-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 38px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 24px 0 24px;
+  color: white;
+  font-size: 12.5px;
+  font-weight: 500;
+  z-index: 1000;
+  pointer-events: none;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.status-bar-icons {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.status-icon {
+  font-size: 12px;
 }
 
 .chat-frame {
@@ -34,3 +63,25 @@
   border: none;
   display: block;
 }
+
+@media (max-width: 500px) {
+  .phone {
+    max-width: 100%;
+    height: 100vh;
+    max-height: 100vh;
+    min-height: 100vh;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  
+  .notch {
+    display: none;
+  }
+  
+  .status-bar {
+    /* Standard notch display on real mobile is handled by native browser,
+       but we can keep a subtle clean status bar or integrate with header */
+    padding: 6px 16px 0 16px;
+  }
+}
